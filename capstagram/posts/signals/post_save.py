@@ -3,7 +3,8 @@ from django.dispatch import receiver
 
 from posts.models import Post
 
+
 @receiver(post_save, sender=Post)
 def post_save_post(sender, instance, created, **kwargs):
-	if not instance.hash_id:
-		instance.init_hash_id()
+    if not instance.hash_id:
+        instance.init_hash_id()
