@@ -1,2 +1,2 @@
 from .post import Post
-from .comment improt Comment
+from .comment import Comment
