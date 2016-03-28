@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 
+from tags.models import Tag
+
 
 class Post(models.Model):
     hash_id = models.CharField(
@@ -23,6 +25,10 @@ class Post(models.Model):
 
     updated_at = models.DateTimeField(
         auto_now=True,
+    )
+
+    tag_set = models.ManyToManyField(
+        Tag,
     )
 
     def init_hash_id(self):
