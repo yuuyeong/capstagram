@@ -16,6 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from capstagram.views import home
+from users.views import *
+
 urlpatterns = [
+    url(r'^signin/$', UserSignIn.as_view(), name="signin"),
     url(r'^admin/', admin.site.urls),
+    url(r'^$', home, name="home"),
+    # url(r'^siginup/$', , name="siginup"),
+    # url(r'^logout/$', , name="logout"),
+
 ]
