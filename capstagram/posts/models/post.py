@@ -30,4 +30,3 @@ class Post(models.Model):
 
         self.hash_id = get_encoded_hash_id(self)
         self.save()
-
