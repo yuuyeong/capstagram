@@ -26,7 +26,8 @@ class Post(models.Model):
     )
 
     def init_hash_id(self):
-        from hashids import Hashids
-        hashids_object = Hashids(salt="soudg", min_length=4)
-        self.hash_id = hashids_object.encode(self.id)
+        from capstagram.utils.hash_id import get_encoded_hash_id
+
+        self.hash_id = get_encoded_hash_id(self)
         self.save()
+
