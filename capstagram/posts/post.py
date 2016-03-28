@@ -3,18 +3,24 @@ from django.conf import settings
 
 
 class Post(models.Model):
-	user = models.ForeignKey(
-		settings.AUTH_USER_MODEL
-	)
+    hash_id = models.CharField(
+    	max_length=8,
+    	blank=True,
+    	null=True,
+    	unique=True,
+    )
 
-	image = models.ImageField()
-	content = models.TextField()
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL
+    )
 
-	created_at = models.DateTimeField(
-		auto_add_now=True,
-	)
+    image = models.ImageField()
+    content = models.TextField()
 
-	updated_at = models.DateTimeField(
-		auto_add=True,
-	)
+    created_at = models.DateTimeField(
+        auto_add_now=True,
+    )
 
+    updated_at = models.DateTimeField(
+        auto_add=True,
+    )
