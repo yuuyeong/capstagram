@@ -1,4 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<form action="" method="post">
+	{% csrf_token %}
+	<input type="text" name="my_id">
+	<input type="password" name="my_pw">
+	<input type="hidden" name="next_url" value={{ request.GET.next }}>
+	<input type="submit">
+</form>
 {% endblock %}
