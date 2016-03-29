@@ -22,6 +22,7 @@ from users.views import *
 urlpatterns = [
     url(r'^signin/$', UserSignIn.as_view(), name="signin"),
     url(r'^signout/$', UserSignOut.as_view(), name="signout"),
+    url(r'^signup/$', UserSignUp.as_view(), name="signup"),
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name="home"),
     # url(r'^siginup/$', , name="siginup"),

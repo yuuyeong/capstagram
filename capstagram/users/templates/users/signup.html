@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}capstagram :: 가입하기{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+	{% csrf_token %}
+	<div class="id">
+		ID :
+		<input type="text" name="user_id">
+	</div>
+	<div class="pw">
+		PW :
+		<input type="password" name="user_pw">
+	</div>
+	<div class="des">
+		소개글 :
+		<textarea name="user_des" cols="30" rows="10"></textarea>
+	</div>
+	<div class="submit">
+		<input type="submit">
+	</div>
+</form>
+
+
+{% endblock %}
