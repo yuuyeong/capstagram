@@ -16,14 +16,21 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 from capstagram.views import home
 from users.views import *
+from posts.views import *
 
 urlpatterns = [
     url(r'^signin/$', UserSignIn.as_view(), name="signin"),
+    url(r'^signout/$', UserSignOut.as_view(), name="signout"),
+    url(r'^signup/$', UserSignUp.as_view(), name="signup"),
+    url(r'^posts/$', PostListView.as_view(), name="list"),
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name="home"),
-    # url(r'^siginup/$', , name="siginup"),
-    # url(r'^logout/$', , name="logout"),
+    url(r'^posts/(?P<pk>\d+)/$', PostDetailView.as_view(), name="detail"),
+    url(r'^(?P<slug>\w+)/$', UserProfileView.as_view(), name="profile"),
 
-]
+] + static(settings.MEDIA_URL, document_ROOT=settings.MEDIA_ROOT)

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}capstagram{% endblock %}
+
+{% block content %}
+	<hr />
+	<img
+             src="{% if post.image %}{{ post.image.url }}{% else %}http://placehold.it/300x300{% endif %}"
+            width="300px"
+            height="300px"
+          />
+	<pre>{{ post.content }}</pre>
+
+	
+	<h4>comments</h4>
+	<ul id="comments" data-post-id="{{ post.id }}">
+		{% for comment in post.comment_set.all %}
+		<li id="#comment_{{ comment.id }}">
+			<p>{{ comment.user.username }} : </p>
+			<p>{{ comment.content }}</p>
+			<br />
+		</li>
+		{% endfor %}
+	</ul>
+
+	<form action="" method="post">
+		{% csrf_token %}
+		<textarea id="content" name="content" cols="30" rows="10"></textarea>
+		<input id="submit" type="submit" value="확인">
+	</form>
+{% endblock %}

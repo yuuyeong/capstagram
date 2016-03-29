@@ -1,12 +1,22 @@
 <ul>
-	<a href="{% url 'signin' %}">
-		<li>로그인</li>
-	</a>
-	<a href="">
-		<li>로그아웃</li>
-	</a>
-	<a href="">
-		<li>가입하기</li>
-	</a>
-
+	{% if request.user.is_authenticated %}
+		<p>{{request.user.username}}</p>
+		<a href="{% url 'signout' %}">
+			<li>로그아웃</li>
+		</a>
+		<a href="{% url 'profile' request.user.username %}">
+			<li>마이 페이지</li>
+		</a>
+	{% else %}
+		<a href="{% url 'signin' %}">
+			<li>로그인</li>
+		</a>
+		
+		<a href="{% url 'signup' %}">
+			<li>가입하기</li>
+		</a>
+	{% endif %}
+		<a href="{% url 'list' %}">
+		<li>POST</li>
+		</a>
 </ul>
