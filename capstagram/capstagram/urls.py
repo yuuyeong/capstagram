@@ -29,7 +29,7 @@ urlpatterns = [
     url(r'^signup/$', UserSignUp.as_view(), name="signup"),
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name="home"),
-    # url(r'^siginup/$', , name="siginup"),
-    # url(r'^logout/$', , name="logout"),
+    url(r'^posts/$', PostListView.as_view(), name="list"),
+    url(r'^posts/(?P<pk>\d+)/$', PostDetailView.as_view(), name="detail"),
 
 ] + static(settings.MEDIA_URL, document_ROOT=settings.MEDIA_ROOT)
