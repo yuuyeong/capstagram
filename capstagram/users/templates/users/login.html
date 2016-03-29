@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}capstagram :: 로그인{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+	{% csrf_token %}
+	<div class="id">
+		ID :
+		<input type="text" name="my_id">
+	</div>
+	<div class="pw">
+		PW :
+		<input type="password" name="my_pw">
+	</div>
+	<div class="submit">
+		<input type="submit">
+	</div>
+</form>
+{% endblock %}
