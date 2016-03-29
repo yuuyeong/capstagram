@@ -16,8 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 from capstagram.views import home
 from users.views import *
+from posts.views import *
 
 urlpatterns = [
     url(r'^signin/$', UserSignIn.as_view(), name="signin"),
@@ -28,4 +32,4 @@ urlpatterns = [
     # url(r'^siginup/$', , name="siginup"),
     # url(r'^logout/$', , name="logout"),
 
-]
+] + static(settings.MEDIA_URL, document_ROOT=settings.MEDIA_ROOT)
