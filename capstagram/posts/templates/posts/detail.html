@@ -23,7 +23,7 @@
 		{% endfor %}
 	</ul>
 
-	<form action="{% url %}" method="post">
+	<form action="" method="post">
 		{% csrf_token %}
 		<textarea id="content" name="content" cols="30" rows="10"></textarea>
 		<input id="submit" type="submit" value="확인">
