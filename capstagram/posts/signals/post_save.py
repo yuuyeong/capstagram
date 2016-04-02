@@ -14,7 +14,7 @@ def post_save_post(sender, instance, created, **kwargs):
 @receiver(post_save, sender=Post)
 def post_save_content_tag(sender, instance, created, **kwargs):
     from tags.utils import get_tag_list
-    tag_list = get_tag_list(instance)
+    tag_list = get_tag_list(instance.content)
 
     for tag_name in tag_list:
         tag, is_created = Tag.objects.get_or_create(

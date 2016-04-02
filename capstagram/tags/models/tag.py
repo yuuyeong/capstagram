@@ -29,8 +29,8 @@ class Tag(models.Model):
     def get_absolute_url(self):
         from django.core.urlresolvers import reverse
         return reverse(
-            "detail",
+            "tag-detail",
             kwargs={
-                "slug": self.post_set.has_id,
+                "slug": self.name,
             }
         )
