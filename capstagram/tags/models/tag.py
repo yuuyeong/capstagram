@@ -15,7 +15,22 @@ class Tag(models.Model):
         auto_now=True,
     )
 
+    @property
+    def full_name(self):
+        return "#{tag_name}".format(
+            tag_name=self.name
+        )
+
     def __str__(self):
         return "#{tag_name}".format(
             tag_name=self.name
+        )
+
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse(
+            "detail",
+            kwargs={
+                "slug": self.post_set.has_id,
+            }
         )
