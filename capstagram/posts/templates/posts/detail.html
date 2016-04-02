@@ -4,11 +4,15 @@
 
 {% block content %}
 	<hr />
+<<<<<<< HEAD
+	<img src="{{ post.image.url }}" width="300px" height="300px"/>
+=======
 	<img
              src="{% if post.image %}{{ post.image.url }}{% else %}http://placehold.it/300x300{% endif %}"
             width="300px"
             height="300px"
           />
+>>>>>>> develop
 	<pre>{{ post.content }}</pre>
 
 	

@@ -24,13 +24,15 @@ from users.views import *
 from posts.views import *
 
 urlpatterns = [
+    url(r'^$', home, name="home"),
+    url(r'^admin/', admin.site.urls),
+
     url(r'^signin/$', UserSignIn.as_view(), name="signin"),
     url(r'^signout/$', UserSignOut.as_view(), name="signout"),
     url(r'^signup/$', UserSignUp.as_view(), name="signup"),
-    url(r'^posts/$', PostListView.as_view(), name="list"),
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', home, name="home"),
-    url(r'^posts/(?P<pk>\d+)/$', PostDetailView.as_view(), name="detail"),
-    url(r'^(?P<slug>\w+)/$', UserProfileView.as_view(), name="profile"),
 
-] + static(settings.MEDIA_URL, document_ROOT=settings.MEDIA_ROOT)
+    url(r'^posts/$', PostListView.as_view(), name="list"),
+    url(r'^posts/create/$', PostCreateView.as_view(), name="create"),
+    url(r'^posts/detail/(?P<slug>\w+)/$', PostDetailView.as_view(), name="detail"),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

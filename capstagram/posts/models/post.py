@@ -38,7 +38,17 @@ class Post(models.Model):
     )
 
     def init_hash_id(self):
-        from capstagram.utils.hash_id import get_encoded_hash_id
+        from capstagram.utils import get_encoded_hash_id
 
         self.hash_id = get_encoded_hash_id(self)
         self.save()
+
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+
+        return reverse(
+            "detail",
+            kwargs={
+                "slug": self.hash_id,
+            }
+        )

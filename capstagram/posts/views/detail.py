@@ -7,3 +7,4 @@ from .list import PostBaseView
 class PostDetailView(LoginRequiredMixin, PostBaseView, DetailView):
     template_name = "posts/detail.html"
     context_object_name = "post"
+    slug_field = "hash_id"
