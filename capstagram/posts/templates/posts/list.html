@@ -8,12 +8,12 @@
 <ul>
 <br />
 	{% for post in post_list %}
-	<a href="{% url 'detail' post.id %}">
+	<a href="{% url 'detail' post.hash_id %}">
 	<li>
 		<img
-             src="{% if post.image %}{{ post.image.url }}{% else %}http://placehold.it/200x150{% endif %}"
+             src="{{ post.image.url }}"
             width="200px"
-            height="150px"
+            height="200px"
           />
           <pre>{{post.content}}</pre>
 	</li>

@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name="home"),
     url(r'^posts/$', PostListView.as_view(), name="list"),
-    url(r'^posts/(?P<pk>\d+)/$', PostDetailView.as_view(), name="detail"),
+    url(r'^posts/create/$', PostCreateView.as_view(), name="create"),
+    url(r'^posts/detail/(?P<slug>\w+)/$', PostDetailView.as_view(), name="detail"),
 
-] + static(settings.MEDIA_URL, document_ROOT=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

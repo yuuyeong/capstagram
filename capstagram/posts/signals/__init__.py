@@ -1,1 +1,1 @@
-default_app_config = "posts.apps.PostsAppConfig"
+from .post_save import post_save_post

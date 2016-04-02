@@ -7,6 +7,9 @@
 		<a href="">
 			<li>마이 페이지</li>
 		</a>
+		<a href="{% url 'create' %}">
+			<li>포스트 작성</li>
+		</a>
 	{% else %}
 		<a href="{% url 'signin' %}">
 			<li>로그인</li>
