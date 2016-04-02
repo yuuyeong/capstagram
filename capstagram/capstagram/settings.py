@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'capstagram',
     'users',
     'posts',
+    'tags',
 ]
 
 MIDDLEWARE_CLASSES = [
