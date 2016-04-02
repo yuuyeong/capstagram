@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}{{ tag.full_name }}{% endblock %}
+
+{% block content %}
+<h3>TAG : {{ tag.name }}</h3>
+
+	<ul>
+		{% for post in tag.post_set.all %}
+		<li>
+			<img src="{{ post.image.url }}" width="300px" height="300px"/>
+		</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

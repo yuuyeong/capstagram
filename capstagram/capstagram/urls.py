@@ -22,6 +22,8 @@ from django.conf.urls.static import static
 from capstagram.views import home
 from users.views import *
 from posts.views import *
+from tags.views import *
+
 
 urlpatterns = [
     url(r'^$', home, name="home"),
@@ -30,9 +32,13 @@ urlpatterns = [
     url(r'^signin/$', UserSignIn.as_view(), name="signin"),
     url(r'^signout/$', UserSignOut.as_view(), name="signout"),
     url(r'^signup/$', UserSignUp.as_view(), name="signup"),
+    url(r'^auth/(?P<slug>\w+)/$', UserProfileView.as_view(), name="profile"),
 
     url(r'^posts/$', PostListView.as_view(), name="list"),
     url(r'^posts/create/$', PostCreateView.as_view(), name="create"),
     url(r'^posts/detail/(?P<slug>\w+)/$', PostDetailView.as_view(), name="detail"),
+
+    url(r'^tags/(?P<slug>\w+)/$', TagDetailView.as_view(), name="tag-detail"),
+    url(r'^posts/detail/(?P<slug>\w+)/tags/$', TagCreateView.as_view(), name="post-tags"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
