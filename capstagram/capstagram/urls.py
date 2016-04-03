@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^posts/$', PostListView.as_view(), name="list"),
     url(r'^posts/create/$', PostCreateView.as_view(), name="create"),
     url(r'^posts/detail/(?P<slug>\w+)/$', PostDetailView.as_view(), name="detail"),
+    url(r'^posts/detail/(?P<slug>\w+)/comment/$', CommentCreateView.as_view(), name="comment"),
 
     url(r'^tags/(?P<slug>\w+)/$', TagDetailView.as_view(), name="tag-detail"),
     url(r'^posts/detail/(?P<slug>\w+)/tags/$', TagCreateView.as_view(), name="post-tags"),
