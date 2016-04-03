@@ -47,4 +47,6 @@ urlpatterns = [
     url(r'^follow/(?P<slug>\w+)/$', UserFollowView.as_view(), name="follow"),
     url(r'^unfollow/(?P<slug>\w+)/$', UserUnfollowView.as_view(), name="unfollow"),
 
+    url(r'^posts/detail/(?P<slug>\w+)/like/$', LikeCountView.as_view(), name="post-like"),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

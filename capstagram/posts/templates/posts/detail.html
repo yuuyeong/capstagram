@@ -6,7 +6,15 @@
 {% block content %}
 	<hr />
 	<img src="{{ post.image.url }}" width="300px" height="300px"/>
+	<div>
+		{% if post.like_user_set.count %}
+			<span>좋아요 {{ post.like_user_set.count }}개</span>
+		{% endif %}
+		<a href="{% url 'post-like' post.hash_id %}" role="button" name="like">♡</a>
+	</div>
+	
 	<pre>{{ post.content | tagify | safe}}</pre>
+	
 	
 	<h4>comments({{ post.comment_set.count }})</h4>
 	<ul id="comments" data-post-id="{{ post.id }}">

@@ -4,3 +4,4 @@ from .create import PostCreateView
 
 from .tags import *
 from .comments import *
+from .like import *
