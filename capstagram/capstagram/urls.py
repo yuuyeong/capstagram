@@ -42,4 +42,6 @@ urlpatterns = [
     url(r'^tags/(?P<slug>\w+)/$', TagDetailView.as_view(), name="tag-detail"),
     url(r'^posts/detail/(?P<slug>\w+)/tags/$', TagCreateView.as_view(), name="post-tags"),
 
+    url(r'^posts/detail/(?P<slug>\w+)/like/$', LikeCountView.as_view(), name="post-like"),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
