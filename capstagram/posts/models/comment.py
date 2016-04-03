@@ -20,3 +20,12 @@ class Comment(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True,
     )
+
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse(
+            "detail",
+            kwargs={
+                "slug": self.post.hash_id,
+            }
+        )
