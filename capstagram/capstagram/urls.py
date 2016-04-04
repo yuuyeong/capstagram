@@ -42,4 +42,9 @@ urlpatterns = [
     url(r'^tags/(?P<slug>\w+)/$', TagDetailView.as_view(), name="tag-detail"),
     url(r'^posts/detail/(?P<slug>\w+)/tags/$', TagCreateView.as_view(), name="post-tags"),
 
+    url(r'^search/users/$', UserListView.as_view(), name="user-search"),
+
+    url(r'^follow/(?P<slug>\w+)/$', UserFollowView.as_view(), name="follow"),
+    url(r'^unfollow/(?P<slug>\w+)/$', UserUnfollowView.as_view(), name="unfollow"),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

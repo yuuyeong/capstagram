@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}사람 검색{% endblock %}
+
+{% block content %}
+<hr>
+<h3>추천추천~</h3>
+<ul>
+	{% for user in user_list %}
+	<li>
+		<span>{{ user.username }}</span>
+		<a href="{% url 'follow' user.username %}" role="button" name="follow">팔로우</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}
