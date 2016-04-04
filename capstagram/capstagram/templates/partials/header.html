@@ -13,6 +13,9 @@
 		<a href="{% url 'profile' request.user.username %}">
 			<li>마이 페이지</li>
 		</a>
+		<a href="{% url 'user-search' %}">
+			<li>팔로우 추천</li>
+		</a>
 	{% else %}
 		<a href="{% url 'signin' %}">
 			<li>로그인</li>
