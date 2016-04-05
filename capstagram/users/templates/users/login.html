@@ -3,18 +3,43 @@
 {% block title %}capstagram :: 로그인{% endblock %}
 
 {% block content %}
-<form action="" method="post">
-	{% csrf_token %}
-	<div class="id">
-		ID :
-		<input type="text" name="my_id">
+<div class="col-md-4 col-md-offset-4">
+	<div class="card">
+		<form class="form" method="post" action="">
+		{% csrf_token %}
+			<div class="header header-primary text-center">
+				<h4>capstagram</h4>
+				<!-- <div class="social-line">
+					<a href="#pablo" class="btn btn-just-icon">
+						<i class="fa fa-facebook-square"></i>
+					</a>
+					<a href="#pablo" class="btn btn-just-icon">
+						<i class="fa fa-twitter"></i>
+					</a>
+					<a href="#pablo" class="btn btn-just-icon">
+						<i class="fa fa-google-plus"></i>
+					</a>
+				</div> -->
+			</div>
+			<div class="content">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="material-icons">face</i>
+					</span>
+					<input type="text" class="form-control" placeholder="ID">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="material-icons">lock_outline</i>
+					</span>
+					<input type="text" class="form-control" placeholder="PASSWORD">
+				</div>
+			</div>
+			<div class="footer text-center">
+				<a href="#pablo" class="btn btn-primary btn-wd btn-lg">Get Started</a>
+			</div>
+		</form>
 	</div>
-	<div class="pw">
-		PW :
-		<input type="password" name="my_pw">
-	</div>
-	<div class="submit">
-		<input type="submit">
-	</div>
-</form>
+</div>
+
 {% endblock %}
