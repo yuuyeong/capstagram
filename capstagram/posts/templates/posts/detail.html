@@ -7,10 +7,10 @@
 	<hr />
 	<img src="{{ post.image.url }}" width="300px" height="300px"/>
 	<div>
-		{% if post.like_user_set.count %}
-			<span>좋아요 {{ post.like_user_set.count }}개</span>
-		{% endif %}
 		<a href="{% url 'post-like' post.hash_id %}" role="button" name="like">♡</a>
+		{% if post.like_user_set.count %}
+			<span>{{ post.like_user_set.count }}개</span>
+		{% endif %}
 	</div>
 	
 	<pre>{{ post.content | tagify | safe}}</pre>
