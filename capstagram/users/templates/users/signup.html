@@ -3,24 +3,50 @@
 {% block title %}capstagram :: 가입하기{% endblock %}
 
 {% block content %}
-<form action="" method="post">
-	{% csrf_token %}
-	<div class="id">
-		ID :
-		<input type="text" name="user_id">
+<div class="col-md-4 col-md-offset-4">
+	<div class="card">
+		<form class="form" method="post" action="">
+		{% csrf_token %}
+			<div class="header header-primary text-center">
+				<h4>capstagram</h4>
+				<!--  for social auth
+				<div class="social-line">
+					<a href="#pablo" class="btn btn-just-icon">
+						<i class="fa fa-facebook-square"></i>
+					</a>
+					<a href="#pablo" class="btn btn-just-icon">
+						<i class="fa fa-twitter"></i>
+					</a>
+					<a href="#pablo" class="btn btn-just-icon">
+						<i class="fa fa-google-plus"></i>
+					</a>
+				</div> 
+				-->
+			</div>
+			<div class="content">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="material-icons">face</i>
+					</span>
+					<input type="text" class="form-control" placeholder="ID" name="user_id">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="material-icons">lock_outline</i>
+					</span>
+					<input type="password" class="form-control" placeholder="PASSWORD" name="user_pw">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="material-icons">chat</i>
+					</span>
+					<input type="text" class="form-control" placeholder="description" name="user_des">
+				</div>
+			</div>
+			<div class="footer text-center">
+				<input type="submit" class="btn btn-primary btn-wd btn-lg" value="Sign up">
+			</div>
+		</form>
 	</div>
-	<div class="pw">
-		PW :
-		<input type="password" name="user_pw">
-	</div>
-	<div class="des">
-		소개글 :
-		<textarea name="user_des" cols="30" rows="10"></textarea>
-	</div>
-	<div class="submit">
-		<input type="submit">
-	</div>
-</form>
-
-
+</div>
 {% endblock %}

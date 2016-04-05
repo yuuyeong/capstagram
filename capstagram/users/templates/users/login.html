@@ -9,7 +9,8 @@
 		{% csrf_token %}
 			<div class="header header-primary text-center">
 				<h4>capstagram</h4>
-				<!-- <div class="social-line">
+				<!--  for social auth
+				<div class="social-line">
 					<a href="#pablo" class="btn btn-just-icon">
 						<i class="fa fa-facebook-square"></i>
 					</a>
@@ -19,24 +20,25 @@
 					<a href="#pablo" class="btn btn-just-icon">
 						<i class="fa fa-google-plus"></i>
 					</a>
-				</div> -->
+				</div> 
+				-->
 			</div>
 			<div class="content">
 				<div class="input-group">
 					<span class="input-group-addon">
 						<i class="material-icons">face</i>
 					</span>
-					<input type="text" class="form-control" placeholder="ID">
+					<input type="text" class="form-control" placeholder="ID" name="my_id">
 				</div>
 				<div class="input-group">
 					<span class="input-group-addon">
 						<i class="material-icons">lock_outline</i>
 					</span>
-					<input type="text" class="form-control" placeholder="PASSWORD">
+					<input type="password" class="form-control" placeholder="PASSWORD" name="my_pw">
 				</div>
 			</div>
 			<div class="footer text-center">
-				<a href="#pablo" class="btn btn-primary btn-wd btn-lg">Get Started</a>
+				<input type="submit" class="btn btn-primary btn-wd btn-lg" value="Sign In">
 			</div>
 		</form>
 	</div>
