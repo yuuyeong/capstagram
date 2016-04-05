@@ -3,35 +3,39 @@
 
 {% block title %}{{request.user.username}}{% endblock %}
 {% block content %}
-<p>ID : {{request.user.username}}</p>
-<pre>소개 : {{request.user.descriptions}}</pre>
-<br>
-<hr>
-<br>
-<h3>팔로우 리스트({{ request.user.follower_set.count }})</h3>
-<ul>
+ <div class="col-md-8">
+	<div class="title">
+		<h4>ID : {{request.user.username}}</h4>	
+	</div>
+	<div class="content">
+		<span class="label label-info">팔로잉 {{ request.user.follower_set.count }}</span>
+		<span class="label label-info">팔로워 {{ request.user.followee_set.count }}</span>
+		<p></p>
+		<pre>{{request.user.descriptions}}</pre>
+	</div>
+</div>
+<!-- <ul>
 	{% for user in request.user.follower_set.all %}
 	<li>
 		<span>{{ user.username }}</span>
 		<a href="{% url 'unfollow' user.username %}" role="button" name="unfollow">언팔로우</a>
 	</li>
 	{% endfor %}
-</ul>
+</ul> -->
 
-<br>
-<h3>내가 쓴 글({{ request.user.post_set.count }})</h3>
-<ul>
-	{% for post in request.user.post_set.all|ordering %}
-	<a href="{% url 'detail' post.hash_id %}">
-	<li>
-		<img
-             src="{{ post.image.url }}"
-            width="200px"
-            height="200px"
-          />
-	</li>
-	</a>
-	<hr />
-	{% endfor %}
-</ul>
+<br><hr><br>
+
+<h4>Posts({{ request.user.post_set.count }})</h4>
+{% for post in request.user.post_set.all|ordering %}
+<div class="col-md-5">
+		<a href="{% url 'detail' post.hash_id %}">
+			<img
+	             src="{{ post.image.url }}"
+	             class="img-responsive"
+	          />
+		</a>
+</div>
+<div class="space"></div>
+{% endfor %}
+
 {% endblock %}
