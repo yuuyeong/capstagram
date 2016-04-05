@@ -3,14 +3,14 @@
 {% block title %}사람 검색{% endblock %}
 
 {% block content %}
-<hr>
-<h3>추천추천~</h3>
-<ul>
+<h4>사람 찾아보기</h4>
 	{% for user in user_list %}
-	<li>
+	<div class="col-md-6 flw_rcmd_pd">
 		<span>{{ user.username }}</span>
-		<a href="{% url 'follow' user.username %}" role="button" name="follow">팔로우</a>
-	</li>
+		<a href="{% url 'follow' user.username %}" role="button" name="follow">
+		<button class="btn btn-raised btn-sm pull-right">팔로우</button>
+		</a>
+	</div>
+	<hr>
 	{% endfor %}
-</ul>
 {% endblock %}
